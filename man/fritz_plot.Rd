@@ -4,7 +4,7 @@
 \alias{fritz_plot}
 \title{Load a log file and create a graphical summary of device login activity}
 \usage{
-fritz_plot(file, plot_type)
+fritz_plot(file, plot_type = c("histogram", "freqpoly"))
 }
 \arguments{
 \item{file}{A path to a log file.}

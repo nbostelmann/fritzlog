@@ -9,7 +9,9 @@
 #' @examples
 #' file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
 #' fritz_plot(file, plot_type = "histogram")
-fritz_plot <- function(file, plot_type) {
+fritz_plot <- function(file, plot_type = c("histogram", "freqpoly")) {
+  plot_type <- rlang::arg_match(plot_type)
+
   log <- fritz_log(file)
 
   p <- ggplot2::ggplot(log, ggplot2::aes(Timestamp)) +
@@ -34,7 +36,6 @@ fritz_plot <- function(file, plot_type) {
       ggplot2::facet_wrap(ggplot2::vars(Device)) +
       ggplot2::guides(fill = "none"),
     freqpoly = p +
-      ggplot2::geom_freqpoly(ggplot2::aes(colour = Device), binwidth = 3600, size = 1),
-    stop("plot_type must be either 'freqpoly' or 'histogram'", call. = FALSE)
+      ggplot2::geom_freqpoly(ggplot2::aes(colour = Device), binwidth = 3600, size = 1)
   )
 }

@@ -2,3 +2,4 @@
 
 export(fritz_log)
 export(fritz_plot)
+importFrom(rlang,.data)

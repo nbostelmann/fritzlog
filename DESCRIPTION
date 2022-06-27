@@ -18,3 +18,5 @@ Imports:
     stringr,
     tibble,
     tidyr
+Depends: 
+    R (>= 4.1.0)

@@ -7,7 +7,8 @@
 #' @export
 #'
 #' @examples
-#' fritz_plot("fritz.log", "histogram")
+#' file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
+#' fritz_plot(file, plot_type = "histogram")
 fritz_plot <- function(file, plot_type) {
   log <- fritz_log(file)
 

@@ -6,7 +6,8 @@
 #' @export
 #'
 #' @examples
-#' fritz_log("fritz.log")
+#' file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
+#' fritz_log(file)
 fritz_log <- function(file) {
   col_names <- list(NULL, c("Date", "Time", "Message"))
   pattern_login <- "WLAN-Gerät angemeldet|WLAN-Gerät hat sich neu angemeldet"

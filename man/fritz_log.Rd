@@ -16,5 +16,6 @@ A tibble.
 Load a log file and transform into a well-formatted tibble
 }
 \examples{
-fritz_log("fritz.log")
+file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
+fritz_log(file)
 }

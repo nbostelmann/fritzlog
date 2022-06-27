@@ -18,5 +18,6 @@ A ggplot2 plot.
 Load a log file and create a graphical summary of device login activity
 }
 \examples{
-fritz_plot("fritz.log", "histogram")
+file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
+fritz_plot(file, plot_type = "histogram")
 }

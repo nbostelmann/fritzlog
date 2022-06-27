@@ -2,7 +2,7 @@ Package: fritzlog
 Title: Analyse FritzBox Log Files
 Version: 0.0.0.9000
 Authors@R: 
-    person("nbostelmann", , , , role = c("aut", "cre"))
+    person("nbostelmann", "nbostelmann", , "12496240+nbostelmann@users.noreply.github.com", role = c("aut", "cre"))
 Description: fritzlog is a package to analyse device login activity for a FritzBox WiFi router. It can load a log file, transform it into a well-formatted tibble and create a graphical summary of device login activity.
 License: MIT + file LICENSE
 Encoding: UTF-8

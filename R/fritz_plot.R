@@ -1,3 +1,13 @@
+#' Load a log file and create a graphical summary of device login activity
+#'
+#' @param file A path to a log file.
+#' @param plot_type The type of plot. Can either be "histogram" (the default) or "freq_poly".
+#'
+#' @return A ggplot2 plot.
+#' @export
+#'
+#' @examples
+#' fritz_plot("fritz.log", "histogram")
 fritz_plot <- function(file, plot_type) {
   log <- fritz_log(file)
 

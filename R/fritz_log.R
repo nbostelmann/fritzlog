@@ -1,3 +1,12 @@
+#' Load a log file and transform into a well-formatted tibble
+#'
+#' @param file A path to a log file.
+#'
+#' @return A tibble.
+#' @export
+#'
+#' @examples
+#' fritz_log("fritz.log")
 fritz_log <- function(file) {
   col_names <- list(NULL, c("Date", "Time", "Message"))
   pattern_login <- "WLAN-Gerät angemeldet|WLAN-Gerät hat sich neu angemeldet"

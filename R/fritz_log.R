@@ -11,7 +11,7 @@
 #' @importFrom rlang .data
 fritz_log <- function(file) {
   col_names <- list(NULL, c("Date", "Time", "Message"))
-  pattern_login <- "WLAN-Gerät angemeldet|WLAN-Gerät hat sich neu angemeldet"
+  pattern_login <- "WLAN-Ger\u00E4t angemeldet|WLAN-Ger\u00E4t hat sich neu angemeldet"
   pattern_device <- "Mbit/s, ([[:print:]]+), IP"
 
   readr::read_lines(file) |>

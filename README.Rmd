@@ -1,0 +1,86 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# fritzlog
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+`fritzlog` is a package to analyse device login activity for a FritzBox WiFi router. It can:
+
+* Load a log file and transform into a well-formatted tibble with `fritz_log()`
+* Load a log file and create a graphical summary of device login activity with `fritz_plot()`
+
+## Installation
+
+You can install the development version of fritzlog from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("nbostelmann/fritzlog")
+```
+
+## How to create a log file
+
+Go to the [FritzBox admin page](http://fritz.box/). In the main menu select `System > Ereignisse > WLAN > Druckansicht` and copy & paste the output to a text file.
+
+An example file is included with this package.
+
+```{r}
+file <- system.file("extdata", "fritz.log", package = "fritzlog", mustWork = TRUE)
+
+readr::read_lines(file, n_max = 15)
+```
+
+## fritz_log()
+
+Simply call `fritz_log()` with the path to the log file to get a well-formatted tibble of device login activity which can be used for further analysis. The function has no other parameters.
+
+```{r}
+library(fritzlog)
+
+fritz_log(file)
+```
+
+## fritz_plot()
+
+`fritz_plot()` can summarise device login activity in a histogram or a frequency polygon plot in `ggplot2` format. It takes the path to the log file and the plot type as parameters.
+
+### Histogram
+
+Call `fritz_plot()` with `plot_type = "histogram"`.
+
+```{r fig.width=10}
+fritz_plot(file, plot_type = "histogram")
+```
+
+### Frequency polygon
+
+Call `fritz_plot()` with `plot_type = "freqpoly"`.
+
+```{r fig.width=10}
+fritz_plot(file, plot_type = "freqpoly")
+```
+
+### Both in one
+
+Plots can be easily combined, for example with the `patchwork` package.
+
+```{r fig.width=10}
+library(patchwork)
+
+fritz_plot(file, plot_type = "histogram") /
+  fritz_plot(file, plot_type = "freqpoly")
+```
